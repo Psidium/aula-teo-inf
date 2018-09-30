@@ -47,7 +47,7 @@ if args.is_encode:
            }
            codec_huff = HuffmanCodec.from_data(pedaco)
            ped_huff = {
-               'a': 'h',
+               'a': 1,
                'd': codec_huff.encode(pedaco),
                't': codec_huff.get_code_table()
            }
@@ -57,5 +57,10 @@ if args.is_encode:
            pedaco = input_file.read(CHUNK)
        with open(args.output_filename, 'wb') as output_file:
            umsgpack.pack(output, output_file, ext_handlers=handlers)
+else:
+    #apaga esse pass e faz ele decodar (provavelmente reusando algo que eu fiz,
+    #mas n sei)
+    pass
+
 print('huffman %d' % huffmann_counter)
 print('lz4 %d' % lz4_counter)
