@@ -14,5 +14,5 @@ trabalho.py --encode --input alice29.txt --output alice29_codificado
 
 ## Para decodificar um arquivo
 ```
-trabalho.py --decode --input alice29_codificado --output alice29_codificado
+trabalho.py --decode --input alice29_codificado --output alice29_decodificado.txt
 ```
