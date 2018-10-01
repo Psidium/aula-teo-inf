@@ -1,0 +1,17 @@
+@startuml "Encoder"
+
+start
+
+while (Fim do arquivo?) is (não)
+  : Lê 2^10 bytes;
+  : Codifica em Huffman e LZ4;
+  if (pedaço em LZ4 > pedaço em Huffman) then (sim)
+    : Insere o número inteiro 4 seguido dos dados em LZ4 no buffer de saída;
+  else (não)
+    : Insere o número inteiro 1 seguido dos dados em Huffman e a tabela dos codewords;
+  endif
+endwhile (sim)
+  : Serializa em Msgpack e salva em arquivo;
+stop
+
+@enduml
